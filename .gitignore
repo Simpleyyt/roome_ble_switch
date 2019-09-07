@@ -1,0 +1,6 @@
+RTE
+_build
+*.uvguix.*
+*.scvd
+JLinkLog.txt
+JLinkSettings.ini
