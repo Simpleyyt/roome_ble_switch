@@ -1,10 +1,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "nrf_gpio.h"
-#include "SEGGER_RTT.h"
-
-#define log_info(format, args...) SEGGER_RTT_printf(0, "[INFO]"format"\n", ##args)
-#define log_error(format, args...) SEGGER_RTT_printf(0, "[ERROR]"format"\n", ##args)
+#include "nrf_log.h"
+#include "nrf_log_ctrl.h"
 
 
 #define GPIO_SERVO_1 13
@@ -53,7 +51,9 @@ void set_blue_led(int on) {
 int main(void)
 {
     gpio_init();
-    log_info("System inited");
+    uint32_t err_code = NRF_LOG_INIT(NULL);
+    APP_ERROR_CHECK(err_code);
+    NRF_LOG_INFO("System inited\n");
     while (true) {
     }
 }
