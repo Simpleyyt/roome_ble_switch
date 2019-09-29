@@ -638,12 +638,12 @@
 // <e> GPIOTE_ENABLED - nrf_drv_gpiote - GPIOTE peripheral driver
 //==========================================================
 #ifndef GPIOTE_ENABLED
-#define GPIOTE_ENABLED 0
+#define GPIOTE_ENABLED 1
 #endif
 #if  GPIOTE_ENABLED
 // <o> GPIOTE_CONFIG_NUM_OF_LOW_POWER_EVENTS - Number of lower power input pins 
 #ifndef GPIOTE_CONFIG_NUM_OF_LOW_POWER_EVENTS
-#define GPIOTE_CONFIG_NUM_OF_LOW_POWER_EVENTS 1
+#define GPIOTE_CONFIG_NUM_OF_LOW_POWER_EVENTS 2
 #endif
 
 // <o> GPIOTE_CONFIG_IRQ_PRIORITY  - Interrupt priority
@@ -1251,7 +1251,7 @@
 // <e> PPI_ENABLED - nrf_drv_ppi - PPI peripheral driver
 //==========================================================
 #ifndef PPI_ENABLED
-#define PPI_ENABLED 0
+#define PPI_ENABLED 1
 #endif
 #if  PPI_ENABLED
 // <e> PPI_CONFIG_LOG_ENABLED - Enables logging in the module.
@@ -2243,7 +2243,7 @@
 // <e> TIMER_ENABLED - nrf_drv_timer - TIMER periperal driver
 //==========================================================
 #ifndef TIMER_ENABLED
-#define TIMER_ENABLED 0
+#define TIMER_ENABLED 1
 #endif
 #if  TIMER_ENABLED
 // <o> TIMER_DEFAULT_CONFIG_FREQUENCY  - Timer frequency if in Timer mode
@@ -2300,14 +2300,14 @@
  
 
 #ifndef TIMER0_ENABLED
-#define TIMER0_ENABLED 0
+#define TIMER0_ENABLED 1
 #endif
 
 // <q> TIMER1_ENABLED  - Enable TIMER1 instance
  
 
 #ifndef TIMER1_ENABLED
-#define TIMER1_ENABLED 0
+#define TIMER1_ENABLED 1
 #endif
 
 // <q> TIMER2_ENABLED  - Enable TIMER2 instance
@@ -2936,7 +2936,7 @@
  
 
 #ifndef APP_PWM_ENABLED
-#define APP_PWM_ENABLED 0
+#define APP_PWM_ENABLED 1
 #endif
 
 // <e> APP_SCHEDULER_ENABLED - app_scheduler - Events scheduler
@@ -3053,6 +3053,42 @@
 #ifndef BUTTON_ENABLED
 #define BUTTON_ENABLED 0
 #endif
+
+// <e> SIMPLE_TIMER_ENABLED - app_simple_timer - Simple application timer functionality
+//==========================================================
+#ifndef SIMPLE_TIMER_ENABLED
+#define SIMPLE_TIMER_ENABLED 1
+#endif
+#if  SIMPLE_TIMER_ENABLED
+// <o> SIMPLE_TIMER_CONFIG_FREQUENCY  - Timer frequency if in Timer mode
+ 
+// <0=> 16 MHz 
+// <1=> 8 MHz 
+// <2=> 4 MHz 
+// <3=> 2 MHz 
+// <4=> 1 MHz 
+// <5=> 500 kHz 
+// <6=> 250 kHz 
+// <7=> 125 kHz 
+// <8=> 62.5 kHz 
+// <9=> 31.25 kHz 
+
+#ifndef SIMPLE_TIMER_CONFIG_FREQUENCY
+#define SIMPLE_TIMER_CONFIG_FREQUENCY 7
+#endif
+
+// <o> SIMPLE_TIMER_CONFIG_INSTANCE  - TIMER instance used
+ 
+// <0=> 0 
+// <1=> 1 
+// <2=> 2 
+
+#ifndef SIMPLE_TIMER_CONFIG_INSTANCE
+#define SIMPLE_TIMER_CONFIG_INSTANCE 1
+#endif
+
+#endif //SIMPLE_TIMER_ENABLED
+// </e>
 
 // <q> CRC16_ENABLED  - crc16 - CRC16 calculation routines
  
