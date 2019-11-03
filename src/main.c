@@ -49,6 +49,8 @@ void set_servo(int level)
 {
     ret_code_t err_code;
     
+    app_pwm_enable(&PWM0);
+    
     nrf_gpio_pin_write(GPIO_SERVO_ENABLE, 1);
     app_pwm_channel_duty_set(&PWM0, 0, SERVO_MIDDLE_DUTY + level); // 6 ~ 10
     
@@ -88,6 +90,7 @@ void gpio_event_handler(nrf_drv_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 void timeout_handler(void *p_context)
 {
     nrf_gpio_pin_write(GPIO_SERVO_ENABLE, 0);
+    app_pwm_disable(&PWM0);
 }
 
 void servo_init()
@@ -156,5 +159,6 @@ int main(void)
     update_servo();
     
     while (true) {
+        __WFI();
     }
 }
